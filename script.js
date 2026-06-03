@@ -28,7 +28,7 @@ window.guardar = async function () {
     }
 
     await addDoc(collection(db, "encuestas"), nueva);
-    alert("Respuesta enviada");
+    
 
     window.location.href = "gracias.html";
 };
