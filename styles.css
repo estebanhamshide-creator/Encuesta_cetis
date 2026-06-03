@@ -85,3 +85,14 @@ button:hover {
   line-height: 1.5;
   opacity: 0.95;
 }
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 14px;
+  resize: none;
+  height: 80px;
+}
