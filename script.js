@@ -1,12 +1,14 @@
 function guardar() {
     let datos = JSON.parse(localStorage.getItem("encuestas")) || [];
 
-    let nueva = {
-        calles: document.getElementById("calles").value,
-        afecta: document.getElementById("afecta").value,
-        desigualdad: document.getElementById("desigualdad").value,
-        participacion: document.getElementById("participacion").value
-    };
+    let nueva = {};
+
+    for (let i = 1; i <= 15; i++) {
+        let elemento = document.getElementById("p" + i);
+        if (elemento) {
+            nueva["p" + i] = elemento.value;
+        }
+    }
 
     datos.push(nueva);
     localStorage.setItem("encuestas", JSON.stringify(datos));
@@ -19,26 +21,12 @@ function generarReporte() {
 
     let total = datos.length;
 
-    let conteo = {
-        bueno: 0,
-        regular: 0,
-        malo: 0
-    };
+    let malos = datos.filter(d => d.p1 === "Malo").length;
 
-    datos.forEach(d => {
-        if (d.calles === "Bueno") conteo.bueno++;
-        if (d.calles === "Regular") conteo.regular++;
-        if (d.calles === "Malo") conteo.malo++;
-    });
-
-    let reporte = `
+    document.getElementById("reporte").innerHTML = `
         Total respuestas: ${total}<br>
-        Bueno: ${porcentaje(conteo.bueno, total)}%<br>
-        Regular: ${porcentaje(conteo.regular, total)}%<br>
-        Malo: ${porcentaje(conteo.malo, total)}%
+        Calles en mal estado: ${porcentaje(malos, total)}%
     `;
-
-    document.getElementById("reporte").innerHTML = reporte;
 }
 
 function porcentaje(valor, total) {
