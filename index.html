@@ -5,16 +5,23 @@
     <title>Encuesta CETIS 23</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+body>
 
-<div class="container">
-    <h1>Encuesta</h1>
+<h1>Encuesta sobre problemáticas urbanas</h1>
 
-    <input type="text" id="nombre" placeholder="Nombre">
-    <input type="text" id="grupo" placeholder="Grupo">
+<p>
+Esta encuesta tiene como propósito recopilar información sobre la pavimentación,
+movilidad, derechos humanos, desigualdad urbana y participación comunitaria.
+</p>
+
+<div class="contenedor">
+
+<input type="text" id="nombre" placeholder="Escribe tu nombre"><br>
+<input type="text" id="grupo" placeholder="Escribe tu grupo"><br>
 
     <label>1. ¿Cómo calificas el estado de las calles?</label>
     <select id="p1">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Bueno</option>
         <option>Regular</option>
         <option>Malo</option>
@@ -22,12 +29,14 @@
 
     <label>2. ¿Tu calle está pavimentada?</label>
     <select id="p2">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>3. ¿Hay baches en tu zona?</label>
     <select id="p3">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Muchos</option>
         <option>Pocos</option>
         <option>Ninguno</option>
@@ -35,60 +44,70 @@
 
     <label>4. ¿La falta de pavimentación afecta tu movilidad?</label>
     <select id="p4">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>5. ¿Las calles dificultan tu traslado diario?</label>
     <select id="p5">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>6. ¿Crees que todas las personas tienen calles en buen estado?</label>
     <select id="p6">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>7. ¿Existe desigualdad en la infraestructura?</label>
     <select id="p7">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>8. ¿Tu colonia recibe menos atención que otras?</label>
     <select id="p8">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>9. ¿Consideras que esto afecta tus derechos?</label>
     <select id="p9">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>10. ¿El gobierno resuelve estos problemas?</label>
     <select id="p10">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>11. ¿Has reportado problemas de calles?</label>
     <select id="p11">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>12. ¿Te gustaría participar en mejorar tu comunidad?</label>
     <select id="p12">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
 
     <label>13. ¿Tu comunidad se organiza para mejorar?</label>
     <select id="p13">
+        <option disabled selected>Elige tu respuesta</option>
         <option>Sí</option>
         <option>No</option>
     </select>
@@ -103,8 +122,10 @@
 
     <h2>Reporte</h2>
     <div id="reporte"></div>
+    <canvas id="grafica"></canvas>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="module" src="script.js"></script>
 </body>
 </html>
