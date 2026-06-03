@@ -10,42 +10,108 @@
 <div class="container">
     <h1>Encuesta sobre Pavimentación y Derechos Humanos</h1>
 
-    <p><strong>Propósito:</strong> Identificar problemáticas de pavimentación, movilidad y desigualdad urbana en la comunidad del CETIS 23.</p>
+    <p><strong>Propósito:</strong> Analizar condiciones de infraestructura, movilidad y desigualdad en la comunidad.</p>
 
     <h2>Datos generales</h2>
-    <input type="text" id="nombre" placeholder="Nombre (opcional)">
     <input type="number" id="edad" placeholder="Edad">
 
-    <h2>Pavimentación y movilidad</h2>
-    <label>¿Cómo calificas el estado de las calles?</label>
-    <select id="calles">
+    <h2>Pavimentación</h2>
+
+    <label>1. ¿Cómo calificas el estado de las calles?</label>
+    <select id="p1">
         <option>Bueno</option>
         <option>Regular</option>
         <option>Malo</option>
     </select>
 
-    <label>¿Te afecta la falta de pavimentación?</label>
-    <select id="afecta">
+    <label>2. ¿Tu calle está pavimentada?</label>
+    <select id="p2">
         <option>Sí</option>
         <option>No</option>
     </select>
 
-    <h2>Derechos humanos y desigualdad</h2>
-    <label>¿Consideras que hay desigualdad en infraestructura?</label>
-    <select id="desigualdad">
+    <label>3. ¿Hay baches en tu zona?</label>
+    <select id="p3">
+        <option>Muchos</option>
+        <option>Pocos</option>
+        <option>Ninguno</option>
+    </select>
+
+    <label>4. ¿La falta de pavimentación afecta tu transporte?</label>
+    <select id="p4">
         <option>Sí</option>
         <option>No</option>
     </select>
 
-    <h2>Participación comunitaria</h2>
-    <label>¿Has participado en mejoras de tu comunidad?</label>
-    <select id="participacion">
+    <label>5. ¿Has tenido accidentes por el mal estado de calles?</label>
+    <select id="p5">
         <option>Sí</option>
         <option>No</option>
     </select>
 
-    <h2>Observaciones</h2>
-    <textarea id="observaciones"></textarea>
+    <h2>Movilidad</h2>
+
+    <label>6. ¿Qué transporte usas?</label>
+    <select id="p6">
+        <option>Caminar</option>
+        <option>Transporte público</option>
+        <option>Auto</option>
+    </select>
+
+    <label>7. ¿Cuánto tardas en llegar a la escuela?</label>
+    <select id="p7">
+        <option>Menos de 15 min</option>
+        <option>15-30 min</option>
+        <option>Más de 30 min</option>
+    </select>
+
+    <label>8. ¿Las calles afectan tu tiempo de traslado?</label>
+    <select id="p8">
+        <option>Sí</option>
+        <option>No</option>
+    </select>
+
+    <h2>Derechos humanos</h2>
+
+    <label>9. ¿Crees que todos tienen acceso a calles en buen estado?</label>
+    <select id="p9">
+        <option>Sí</option>
+        <option>No</option>
+    </select>
+
+    <label>10. ¿Existe desigualdad en infraestructura?</label>
+    <select id="p10">
+        <option>Sí</option>
+        <option>No</option>
+    </select>
+
+    <label>11. ¿El gobierno atiende estas problemáticas?</label>
+    <select id="p11">
+        <option>Sí</option>
+        <option>No</option>
+    </select>
+
+    <h2>Participación</h2>
+
+    <label>12. ¿Has reportado problemas de calles?</label>
+    <select id="p12">
+        <option>Sí</option>
+        <option>No</option>
+    </select>
+
+    <label>13. ¿Participarías en mejorar tu comunidad?</label>
+    <select id="p13">
+        <option>Sí</option>
+        <option>No</option>
+    </select>
+
+    <h2>Opinión</h2>
+
+    <label>14. ¿Qué mejorarías?</label>
+    <textarea id="p14"></textarea>
+
+    <label>15. Comentarios adicionales</label>
+    <textarea id="p15"></textarea>
 
     <button onclick="guardar()">Enviar</button>
 
