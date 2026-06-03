@@ -30,7 +30,7 @@ window.guardar = async function () {
     await addDoc(collection(db, "encuestas"), nueva);
     alert("Respuesta enviada");
 
-    generarReporte();
+    window.location.href = "gracias.html";
 };
 
 // 📊 REPORTE + GRÁFICA
