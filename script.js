@@ -39,40 +39,57 @@ async function generarReporte() {
 
     let total = querySnapshot.size;
 
-    let bueno = 0;
-    let regular = 0;
-    let malo = 0;
-
-    querySnapshot.forEach(doc => {
-        let d = doc.data();
-        if (d.p1 === "Bueno") bueno++;
-        if (d.p1 === "Regular") regular++;
-        if (d.p1 === "Malo") malo++;
-    });
-
-    // 🧾 REPORTE TEXTO
     document.getElementById("reporte").innerHTML = `
-        Total respuestas: ${total}<br>
-        Bueno: ${bueno}<br>
-        Regular: ${regular}<br>
-        Malo: ${malo}
+        Total respuestas: ${total}
     `;
 
-    // 📊 GRÁFICA
-    const ctx = document.getElementById("grafica").getContext("2d");
+    const contenedor = document.getElementById("graficas");
+    contenedor.innerHTML = "";
 
-    if (chart) chart.destroy();
+    // 🔥 recorrer preguntas cerradas (1 a 13)
+    for (let i = 1; i <= 13; i++) {
 
-    chart = new Chart(ctx, {
-        type: "pie",
-        data: {
-            labels: ["Bueno", "Regular", "Malo"],
-            datasets: [{
-                data: [bueno, regular, malo]
-            }]
-        }
-    });
+        let conteo = {};
+
+        querySnapshot.forEach(doc => {
+            let d = doc.data();
+            let respuesta = d["p" + i];
+
+            if (respuesta) {
+                conteo[respuesta] = (conteo[respuesta] || 0) + 1;
+            }
+        });
+
+        // crear canvas dinámico
+        let canvas = document.createElement("canvas");
+        canvas.id = "grafica" + i;
+        canvas.style.marginTop = "30px";
+
+        contenedor.appendChild(canvas);
+
+        // crear gráfica
+        new Chart(canvas, {
+            type: "bar",
+            data: {
+                labels: Object.keys(conteo),
+                datasets: [{
+                    label: "Pregunta " + i,
+                    data: Object.values(conteo)
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                }
+            }
+        });
+    }
 }
-
 // Cargar datos al iniciar
 generarReporte();
